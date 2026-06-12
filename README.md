@@ -1,236 +1,173 @@
-⚖️ LegalMind AI
-Multi-Agent Legal Reasoning Framework Leveraging Fine-Tuning of LLMs and RAG to Reduce Hallucinations
+# ⚖️ LegalMind AI
 
-LegalMind AI is a production-ready Multi-Agent Legal Reasoning System designed for Indian legal research and analysis.
+## Multi-Agent Legal Reasoning System using RAG, Fine-Tuned LLMs, and NLI Verification
 
-The system combines:
+LegalMind AI is an AI-powered legal reasoning framework designed to generate grounded and explainable legal opinions by combining Retrieval-Augmented Generation (RAG), fine-tuned Large Language Models, and Natural Language Inference (NLI)-based verification.
 
-Retrieval-Augmented Generation (RAG)
-QLoRA Fine-Tuned Large Language Models
-Natural Language Inference (NLI)
-Multi-Agent Architecture
-Hallucination Detection and Verification
+The system follows a multi-agent architecture where specialized agents perform legal retrieval, legal reasoning, and verification to reduce hallucinations and improve reliability.
 
-to generate legally grounded, explainable, and verifiable legal opinions.
+---
 
-🎯 Problem Statement
+## 🚀 Features
 
-Large Language Models frequently hallucinate:
+* Retrieval-Augmented Generation (RAG)
+* Multi-Agent Legal Reasoning
+* Fine-Tuned Legal Language Model
+* Hallucination Detection using NLI
+* Explainable AI Pipeline
+* Semantic Legal Search using FAISS
+* PDF-Based Legal Document Analysis
+* Streamlit Web Interface
+* FastAPI Backend Support
 
-Fake case laws
-Incorrect statutory references
-Unsupported legal conclusions
-Fabricated legal doctrines
+---
 
-These issues become critical in legal applications where factual correctness and evidential grounding are mandatory.
+## 🏗️ System Architecture
 
-LegalMind AI addresses this challenge through a multi-agent pipeline that retrieves legal evidence, generates legal reasoning, verifies every claim, and synthesizes a final legal opinion.
+```text
+User Query
+    │
+    ▼
+┌─────────────────────┐
+│ Retrieval Agent     │
+│ FAISS + Embeddings  │
+└─────────────────────┘
+    │
+    ▼
+┌─────────────────────┐
+│ Lawyer Agent        │
+│ Legal Reasoning     │
+└─────────────────────┘
+    │
+    ▼
+┌─────────────────────┐
+│ Verifier Agent      │
+│ NLI Verification    │
+└─────────────────────┘
+    │
+    ▼
+┌─────────────────────┐
+│ Final Legal Opinion │
+└─────────────────────┘
+```
 
-🏗 System Architecture
-User Query / PDF Upload
-          │
-          ▼
- ┌──────────────────────┐
- │ Retrieval Layer      │
- │ (RAG + FAISS)        │
- └──────────────────────┘
-          │
-          ▼
- ┌──────────────────────┐
- │ Lawyer Agent         │
- │ Fine-Tuned LLM       │
- └──────────────────────┘
-          │
-          ▼
- ┌──────────────────────┐
- │ Verifier Agent       │
- │ NLI Verification     │
- └──────────────────────┘
-          │
-          ▼
- ┌──────────────────────┐
- │ Judge Agent          │
- │ Final Legal Opinion  │
- └──────────────────────┘
-          │
-          ▼
-       Streamlit UI
-🚀 Key Features
-🔍 Retrieval-Augmented Generation (RAG)
-Semantic retrieval from Indian legal corpus
-Dense vector search using FAISS
-Cross-encoder re-ranking
-Context grounding before generation
-⚖️ Lawyer Agent
-Fine-tuned Legal LLM
-Generates structured legal analysis
-Context-aware reasoning
-Hallucination-resistant prompting
-🧠 Verifier Agent
-NLI-based verification
-Detects unsupported claims
-Detects contradictions
-Detects fabricated legal references
-👨‍⚖️ Judge Agent
-Synthesizes final legal opinion
-Assigns confidence score
-Generates verification status
-Produces explainable output
-📄 PDF Analysis
-Upload legal documents
-Automatic text extraction
-Query uploaded documents
-Integrated with RAG pipeline
-🌐 Web Application
-Streamlit Frontend
-FastAPI Backend
-Dark Professional UI
-Multi-Tab Explainable Results
-🛠 Technology Stack
-Layer	Technology
-Frontend	Streamlit
-Backend	FastAPI
-Vector Search	FAISS
-Embeddings	all-mpnet-base-v2
-Re-Ranker	ms-marco-MiniLM-L-6-v2
-Legal LLM	TinyLlama / Fine-Tuned Legal Model
-Verification	DeBERTa-v3 MNLI-FEVER-ANLI
-PDF Processing	PyMuPDF
-Training	QLoRA
-Deep Learning	PyTorch
-NLP	HuggingFace Transformers
-📚 Dataset
-IL-TUR Dataset
+---
 
-Indian Legal Text Understanding and Reasoning Dataset
+## 🧠 Multi-Agent Framework
 
-Contains:
-
-42,465 Indian Legal Cases
-Issue Identification
-Judgment Reasoning
-Outcome Prediction
-Doctrine Explanation
-
-The dataset combines:
-
-ILDC
-CJPE
-
-into a unified legal reasoning benchmark.
-
-🧠 Multi-Agent Pipeline
-Agent 1: Lawyer Agent
+### Lawyer Agent
 
 Responsibilities:
 
-Legal Issue Identification
-Legal Reasoning
-Context-Based Analysis
-Preliminary Assessment
+* Legal issue identification
+* Context-based legal analysis
+* Legal reasoning generation
+* Opinion drafting
 
-Input:
-
-Question + Retrieved Context
-
-Output:
-
-Legal Analysis
-Agent 2: Verifier Agent
+### Verifier Agent
 
 Responsibilities:
 
-Claim Verification
-Hallucination Detection
-Contradiction Detection
-Legal Sanity Checks
+* Detect unsupported claims
+* Detect contradictions
+* Verify generated legal reasoning
+* Reduce hallucinations
 
-Model:
-
-MoritzLaurer/deberta-v3-base-mnli-fever-anli
-
-Output:
-
-Supported
-Review Required
-Contradiction Detected
-Agent 3: Judge Agent
+### Final Opinion Generator
 
 Responsibilities:
 
-Final Legal Opinion
-Confidence Scoring
-Opinion Synthesis
-Professional Formatting
+* Combine verified reasoning
+* Generate structured legal opinion
+* Provide confidence assessment
 
-Output:
+---
 
-FINAL LEGAL OPINION
-📂 Project Structure
-LegalMind/
+## 🛠️ Technology Stack
+
+| Component          | Technology                 |
+| ------------------ | -------------------------- |
+| Frontend           | Streamlit                  |
+| Backend            | FastAPI                    |
+| Vector Database    | FAISS                      |
+| Embeddings         | Sentence Transformers      |
+| Legal LLM          | TinyLlama Fine-Tuned Model |
+| Verification Model | DeBERTa-v3 MNLI            |
+| Deep Learning      | PyTorch                    |
+| NLP Framework      | HuggingFace Transformers   |
+| PDF Processing     | PyMuPDF                    |
+
+---
+
+## 📂 Project Structure
+
+```text
+LegalMind-AI/
 │
 ├── app.py
 ├── api.py
 ├── legalmind_core.py
 ├── pdf_utils.py
-├── requirements.txt
 ├── Dockerfile
+├── requirements.txt
 ├── README.md
 │
 ├── data/
-│   ├── legalmind_cases.jsonl
-│   └── chunks.jsonl
-│
 ├── index/
-│   └── faiss_index.bin
-│
 ├── cache/
-│
 ├── models/
-│
 └── results/
-⚙️ Installation
+```
 
-Clone Repository
+---
 
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
 git clone https://github.com/SohamS7S/LegalMind-AI.git
 
 cd LegalMind-AI
+```
 
-Install Dependencies
+Install dependencies:
 
+```bash
 pip install -r requirements.txt
-▶️ Run Streamlit Application
+```
+
+---
+
+## ▶️ Running the Streamlit Application
+
+```bash
 streamlit run app.py
-▶️ Run FastAPI Backend
+```
+
+---
+
+## ▶️ Running the FastAPI Backend
+
+```bash
 uvicorn api:app --reload
-📷 Screenshots
-Home Page
-Legal Query Input
-PDF Upload
-Multi-Agent Analysis
-Retrieved Context
-Top Retrieved Legal Chunks
-Explainable Evidence
-Lawyer Agent
-Legal Analysis
-Context Grounding
-Verifier Agent
-Hallucination Detection
-Support Verification
-Final Legal Opinion
-Verified Output
-Confidence Score
-🎯 Example Query
-A doctor performed surgery without obtaining informed consent.
-Could this amount to medical negligence or battery?
+```
 
-Output:
+---
 
+## 📊 Example Query
+
+```text
+Can a doctor perform surgery without informed consent?
+```
+
+Example Output:
+
+```text
 FINAL LEGAL OPINION
 
 Issue:
-...
+Whether surgery without informed consent may create legal liability.
 
 Legal Analysis:
 ...
@@ -240,46 +177,69 @@ Supported
 
 Confidence Level:
 High
-📈 Research Contributions
+```
 
-✅ Indian Legal RAG System
+---
 
-✅ Multi-Agent Legal Reasoning
+## 🔍 Retrieval-Augmented Generation Pipeline
 
-✅ QLoRA Fine-Tuning Pipeline
+1. User submits legal query.
+2. Query embeddings are generated.
+3. Relevant legal chunks are retrieved from FAISS.
+4. Lawyer Agent generates legal reasoning.
+5. Verifier Agent validates claims using NLI.
+6. Final legal opinion is generated.
 
-✅ Hallucination Detection using NLI
+---
 
-✅ Explainable Legal AI
+## 🎓 Academic Information
 
-✅ Streamlit + FastAPI Deployment
+**Project Title**
 
-✅ PDF-Based Legal Analysis
+LegalMind AI: Multi-Agent Legal Reasoning System using Retrieval-Augmented Generation and Hallucination Verification
 
-👨‍🎓 Academic Information
+**Student**
 
-Author: Soham Sachin Shelar
+Soham Shelar (DS24M32)
 
-Roll No: DS24M32
+**Program**
 
-Program: Master of Technology (Data Science)
+Master of Technology (Data Science)
 
-University: Savitribai Phule Pune University
+**University**
 
-Guide: Dr. Manisha Bharati
+Savitribai Phule Pune University
 
-Academic Year: 2025–26
+**Guide**
 
-⚠️ Disclaimer
+Dr. Manisha Bharati
 
-LegalMind AI is an AI-assisted legal research system intended for educational and research purposes.
+---
 
-The generated outputs should not be considered professional legal advice. Users should consult qualified legal practitioners before making legal decisions.
+## 📌 Future Improvements
 
-⭐ If you found this project useful
+* Advanced Legal Citation Verification
+* Court Judgment Summarization
+* Multilingual Legal Support
+* Enhanced Explainability Dashboard
+* Real-Time Legal Knowledge Updates
 
-Please consider giving this repository a star. It helps support future research and development in Explainable Legal AI.
+---
 
-⭐ Star the repository
-🍴 Fork the project
-📢 Share with researchers and developers
+## ⚠️ Disclaimer
+
+This project is intended for educational and research purposes.
+
+The generated legal opinions should not be considered professional legal advice. Users should consult qualified legal professionals before making legal decisions.
+
+---
+
+## ⭐ Support
+
+If you found this project useful:
+
+* Star the repository
+* Fork the project
+* Share feedback and suggestions
+
+---
