@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.log
+
+cache/
+models/
+data/
+index/
+results/
+
+.ipynb_checkpoints/
+
+*.faiss
+*.bin
+*.pkl
+*.safetensors
